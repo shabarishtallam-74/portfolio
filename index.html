@@ -1,0 +1,829 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TNK Shabarish | Portfolio</title>
+
+<style>
+:root {
+  --bg: #080b14;
+  --card: #111827;
+  --cyan: #6ce8f2;
+  --purple: #a58bff;
+  --text: #f3f5ff;
+  --muted: #9ba8bf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 88%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* NAVIGATION */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(8, 11, 20, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #263047;
+}
+
+nav {
+  min-height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: var(--cyan);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--cyan);
+}
+
+.menu-btn {
+  display: none;
+  color: white;
+  background: none;
+  border: 1px solid #39445e;
+  padding: 7px 11px;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  min-height: 88vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 45px;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+.status {
+  display: inline-block;
+  color: var(--cyan);
+  border: 1px solid #6ce8f244;
+  padding: 7px 12px;
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 70px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+}
+
+.gradient {
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero h2 {
+  font-size: clamp(20px, 3vw, 28px);
+  margin: 20px 0 12px;
+}
+
+.hero p, .section-desc {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.hero p {
+  max-width: 510px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 28px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 19px;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: linear-gradient(100deg, var(--cyan), var(--purple));
+  color: #080b14;
+}
+
+.btn-outline {
+  border: 1px solid #3a465f;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px #6ce8f222;
+}
+
+.terminal {
+  background: linear-gradient(145deg, #151f32, #0b101c);
+  border: 1px solid #34415b;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px #0005;
+  animation: float 5s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.terminal-head {
+  padding: 13px 17px;
+  border-bottom: 1px solid #29344a;
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dots {
+  color: #ff8793;
+  letter-spacing: 3px;
+}
+
+.terminal pre {
+  padding: 25px 20px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: 12px/2 "Courier New", monospace;
+  color: #d8e2f4;
+}
+
+.code-purple { color: #c3a7ff; }
+.code-cyan { color: var(--cyan); }
+.code-green { color: #9bf5c8; }
+
+/* GENERAL SECTIONS */
+section:not(.hero) {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.section-label {
+  color: var(--cyan);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(30px, 4vw, 45px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.section-desc {
+  max-width: 650px;
+  margin-bottom: 35px;
+}
+
+/* ABOUT */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text p {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.about-text strong {
+  color: var(--cyan);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.stat {
+  background: var(--card);
+  border: 1px solid #263047;
+  border-radius: 10px;
+  padding: 23px;
+  transition: 0.3s;
+}
+
+.stat:hover, .card:hover {
+  transform: translateY(-5px);
+  border-color: #6ce8f277;
+}
+
+.stat h3 {
+  color: var(--cyan);
+  font-size: 30px;
+}
+
+.stat p {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* SKILLS */
+.skills-section {
+  background: #0b101b;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.card {
+  background: linear-gradient(145deg, #131d30, #0d1320);
+  border: 1px solid #29354c;
+  border-radius: 11px;
+  padding: 24px;
+  transition: 0.3s;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.skill-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  background: #6ce8f218;
+  color: var(--cyan);
+  border-radius: 9px;
+  margin-bottom: 19px;
+  font-weight: bold;
+}
+
+.skill-bar {
+  height: 4px;
+  background: #28344a;
+  margin-top: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skill-bar span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  transition: width 1.3s ease;
+}
+
+.card.visible .skill-bar span {
+  width: var(--level);
+}
+
+/* PROJECTS */
+.projects-section {
+  background: var(--bg);
+}
+
+.project-number {
+  color: var(--cyan);
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 13px;
+}
+
+.project-card {
+  overflow: hidden;
+}
+
+.project-art {
+  height: 150px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 36px;
+  background:
+    radial-gradient(circle at 70% 30%, #a58bff55, transparent 35%),
+    linear-gradient(135deg, #14283a, #14142b);
+  color: var(--cyan);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tags span {
+  font-size: 10px;
+  color: #b7c5df;
+  border: 1px solid #34415a;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+/* EDUCATION */
+.education-section {
+  background: #0b101b;
+}
+
+.education-item {
+  border-left: 2px solid var(--cyan);
+  padding: 5px 0 5px 25px;
+  margin: 25px 0;
+}
+
+.education-item h3 {
+  margin-bottom: 5px;
+}
+
+.education-item p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.education-item .date {
+  color: var(--cyan);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+/* CONTACT */
+.contact-section {
+  text-align: center;
+  background: radial-gradient(ellipse at center, #7775ff18, transparent 65%);
+}
+
+.contact-section .section-desc {
+  margin: 0 auto;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 28px;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid #253047;
+  padding: 25px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 65px;
+  }
+
+  .terminal {
+    max-width: 550px;
+    width: 100%;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: #0b101b;
+    padding: 25px 6%;
+    border-bottom: 1px solid #263047;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    width: 90%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  section:not(.hero) {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="container">
+    <a href="#home" class="logo">TNK <span>SHABARISH.</span></a>
+    <button class="menu-btn" aria-label="Toggle navigation"
+      aria-expanded="false">☰</button>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact ↗</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero container" id="home">
+  <div class="hero-copy reveal">
+    <div class="status">● OPEN TO LEARNING & OPPORTUNITIES</div>
+    <p>Hello, I'm</p>
+    <h1>TNK <span class="gradient">Shabarish</span></h1>
+    <h2>Building with <span class="gradient">code & curiosity.</span></h2>
+    <p>
+      CSE (AI & ML) student at Uttaranchal University,
+      exploring software development, data analysis, and
+      machine learning.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary" href="#projects">Explore My Work ↘</a>
+      <a class="btn btn-outline" href="#contact">Contact Me ↗</a>
+    </div>
+  </div>
+
+  <div class="terminal">
+    <div class="terminal-head">
+      <span class="dots">● ● ●</span>
+      <span>shabarish.py</span>
+      <span>ONLINE</span>
+    </div>
+    <pre><span class="code-purple">class</span> <span class="code-cyan">Developer</span>:
+    <span class="code-purple">def</span> __init__(self):
+        self.name = <span class="code-green">"Shabarish"</span>
+        self.field = <span class="code-green">"AI & ML"</span>
+        self.skills = [
+            <span class="code-green">"Python"</span>,
+            <span class="code-green">"HTML & CSS"</span>,
+            <span class="code-green">"DBMS"</span>
+        ]
+        self.mindset = <span class="code-green">"Always learning"</span>
+
+<span class="code-purple"># Turning ideas into projects...</span></pre>
+  </div>
+</section>
+
+<section class="container" id="about">
+  <div class="reveal">
+    <p class="section-label">01 / ABOUT ME</p>
+    <h2 class="section-title">Curiosity first.<br>
+      <span class="gradient">Progress always.</span></h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>
+        I'm a Computer Science student specialising in
+        <strong>Artificial Intelligence and Machine Learning</strong>
+        at Uttaranchal University.
+      </p>
+      <p>
+        I enjoy learning new technologies, strengthening my programming
+        fundamentals, and creating projects that solve practical problems.
+        My goal is to grow as a developer through consistent learning
+        and hands-on experience.
+      </p>
+      <p>My approach: stay curious, build consistently, and improve every iteration.</p>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat">
+        <h3>7.9</h3>
+        <p>CGPA</p>
+      </div>
+      <div class="stat">
+        <h3>2028</h3>
+        <p>GRADUATION</p>
+      </div>
+      <div class="stat">
+        <h3>AI +</h3>
+        <p>TECHNOLOGY</p>
+      </div>
+      <div class="stat">
+        <h3>∞</h3>
+        <p>LEARNING</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section" id="skills">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">02 / MY TOOLKIT</p>
+      <h2 class="section-title">Skills I'm developing.</h2>
+      <p class="section-desc">
+        The technologies I'm learning and practising to build a strong
+        foundation in software development and AI.
+      </p>
+    </div>
+
+    <div class="grid">
+      <article class="card reveal">
+        <div class="skill-icon">Py</div>
+        <h3>Python</h3>
+        <p>Programming fundamentals, logic, and data-focused problem solving.</p>
+        <div class="skill-bar"><span style="--level:72%"></span></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="skill-icon">&lt;/&gt;</div>
+        <h3>HTML & CSS</h3>
+        <p>Structured web pages, responsive layouts, and styling.</p>
+        <div class="skill-bar"><span style="--level:68%"></span></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="skill-icon">DB</div>
+        <h3>DBMS</h3>
+        <p>Relational databases, data organisation, and database concepts.</p>
+        <div class="skill-bar"><span style="--level:62%"></span></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="skill-icon">C</div>
+        <h3>C Programming</h3>
+        <p>Core programming concepts and logical problem solving.</p>
+        <div class="skill-bar"><span style="--level:60%"></span></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="skill-icon">ML</div>
+        <h3>AI & Machine Learning</h3>
+        <p>Exploring data-driven models and machine learning workflows.</p>
+        <div class="skill-bar"><span style="--level:55%"></span></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="skill-icon">JS</div>
+        <h3>JavaScript</h3>
+        <p>Learning interactive web development and browser-based scripting.</p>
+        <div class="skill-bar"><span style="--level:40%"></span></div>
+      </article>
+    </div>
+    <p class="section-desc" style="font-size:11px;margin-top:20px;margin-bottom:0">
+      Skill bars indicate learning focus, not formal proficiency scores.
+    </p>
+  </div>
+</section>
+
+<section class="projects-section" id="projects">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">03 / SELECTED WORK</p>
+      <h2 class="section-title">Ideas into projects.</h2>
+      <p class="section-desc">
+        Projects from my learning journey. Add repository and demo links
+        as your implementations become available.
+      </p>
+    </div>
+
+    <div class="grid">
+      <article class="card project-card reveal">
+        <div class="project-art">◉</div>
+        <p class="project-number">PROJECT 01</p>
+        <h3>Weather Data Analysis & Prediction</h3>
+        <p>
+          Exploring weather data, finding patterns, and investigating
+          machine learning approaches for prediction.
+        </p>
+        <div class="tags">
+          <span>Python</span><span>Data Analysis</span><span>ML</span>
+        </div>
+      </article>
+
+      <article class="card project-card reveal">
+        <div class="project-art">⌕</div>
+        <p class="project-number">PROJECT 02</p>
+        <h3>Fake News Detection System</h3>
+        <p>
+          Exploring text analysis and machine learning concepts to
+          classify news content.
+        </p>
+        <div class="tags">
+          <span>Machine Learning</span><span>Text Analysis</span>
+          <span>Classification</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="education-section" id="education">
+  <div class="container reveal">
+    <p class="section-label">04 / EDUCATION</p>
+    <h2 class="section-title">My learning journey.</h2>
+
+    <div class="education-item">
+      <p class="date">2024 — 2028</p>
+      <h3>Uttaranchal University</h3>
+      <p>B.Tech / Computer Science & Engineering — AI & ML</p>
+      <p>CGPA: 7.9</p>
+    </div>
+
+    <div class="education-item">
+      <p class="date">CERTIFICATION</p>
+      <h3>Artificial Intelligence — Simplilearn</h3>
+      <p>Add the exact course title and certificate link here.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="container reveal">
+    <p class="section-label">05 / GET IN TOUCH</p>
+    <h2 class="section-title">
+      Let's build something<br><span class="gradient">meaningful.</span>
+    </h2>
+    <p class="section-desc">
+      Open to connecting with fellow learners, collaborating on projects,
+      and exploring internship opportunities.
+    </p>
+
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:YOUR_EMAIL@example.com">
+        Email Me ↗
+      </a>
+      <a class="btn btn-outline" href="https://github.com/" target="_blank"
+         rel="noreferrer">GitHub ↗</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/" target="_blank"
+         rel="noreferrer">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> TNK Shabarish · Designed with curiosity.
+  </div>
+</footer>
+
+<script>
+// Mobile navigation
+const menuButton = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuButton.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  menuButton.textContent = isOpen ? "✕" : "☰";
+});
+
+// Close menu after clicking a link
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.textContent = "☰";
+  });
+});
+
+// Reveal sections and animate skill bars on scroll
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+  revealObserver.observe(element);
+});
+
+// Automatically update the copyright year
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
